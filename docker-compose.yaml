@@ -1,12 +1,13 @@
 services:
- nodeapp:
+ api:
   image: node:latest
   volumes:
-    - ./src:/root/nodeapp
+    - ./api_src:/root/nodeapp
     - ./dev.sh:/root/dev.sh
-  entrypoint: ["/bin/bash","/root/dev.sh"]
   ports:
     - 3000:3000
+  
+  entrypoint: ["/bin/bash","/root/dev.sh"]
   command: ["nodemon", "/root/nodeapp"]
   tty: true
   stdin_open: true
