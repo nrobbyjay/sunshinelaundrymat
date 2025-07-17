@@ -11,4 +11,10 @@ services:
   command: ["nodemon", "/root/nodeapp"]
   tty: true
   stdin_open: true
-  
+
+ db:
+  image: mysql:oraclelinux9
+  ports:
+   - 3306:3306
+  environment: 
+   MYSQL_ROOT_PASSWORD: 'test123!'
