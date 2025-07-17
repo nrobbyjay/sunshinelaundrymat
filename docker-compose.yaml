@@ -12,9 +12,11 @@ services:
   tty: true
   stdin_open: true
 
- db:
+ mysql:
   image: mysql:oraclelinux9
   ports:
    - 3306:3306
+  volumes:
+   - ./db_src:/var/lib/mysql
   environment: 
    MYSQL_ROOT_PASSWORD: 'test123!'
