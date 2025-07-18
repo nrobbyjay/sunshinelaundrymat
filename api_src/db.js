@@ -1,22 +1,25 @@
 import mysql2 from 'mysql2'
-export const db = mysql2.createConnection({
+export let db
+const dbInit = mysql2.createConnection({
         host:'mysql',
         user:'root',
         password:'test123!',
-        database:'sunshinelaundry1'
     })
 export const initDb = ()=>{
-    try{
-        db.connect
-    }
-    
-    catch(err){
-        console.log('LOOK'+err)
-    }
+    dbInit.connect((err)=>{
+      if(err){
+        throw err
+      }
     try{
         const database = `
-        CREATE DATABASE IF NOT EXISTS sunshinelaundry1
-        `
+        CREATE DATABASE IF NOT EXISTS sunshinelaundry1`
+        dbInit.query(database)
+        db = mysql2.createConnection({
+            host:'mysql',
+            user:'root',
+            password:'test123!',
+            database:'sunshinelaundry1'        
+        })
         const orders = `CREATE TABLE IF NOT EXISTS orders(
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(225) NOT NULL,
@@ -26,14 +29,18 @@ export const initDb = ()=>{
         includeFabcon BOOL NOT NULL,
         type VARCHAR(20) NOT NULL,
         deliverAddress VARCHAR(225),
-        deliveryDateTime VARCHAR(225),
+        deliverDateTime VARCHAR(225),
         pickupDateTime VARCHAR(225),
         createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
         )`
-        db.execute(database)
         db.execute(orders)
-    }catch{
-        throw(error)
+
+        
+    }catch(err){
+        console.log('Unable to create database')
+        throw err
     }
+      return
+    })
 }
