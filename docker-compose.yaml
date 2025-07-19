@@ -6,7 +6,7 @@ services:
     - ./dev.sh:/root/dev.sh
   ports:
     - 3000:3000
-  
+
   entrypoint: ["/bin/bash","/root/dev.sh"]
   command: ["nodemon", "/root/nodeapp"]
   tty: true
@@ -17,6 +17,6 @@ services:
   ports:
    - 3306:3306
   volumes:
-   - ./db_src:/var/lib/mysql
+    - ./mysql-init:/docker-entrypoint-initdb.d
   environment: 
    MYSQL_ROOT_PASSWORD: 'test123!'
