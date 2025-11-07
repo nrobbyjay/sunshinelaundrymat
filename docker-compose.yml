@@ -1,9 +1,25 @@
 services:
- backend-api:
-  image: python:3.10.19-slim-trixie
-  volumes: 
-   - ./backend-src:/app
-   - ./data:/data
+ frontend:
+  build:
+   context: .
+   dockerfile: ./frontend/frontend.dockerfile
+  volumes:
+   - ./frontend:/app
+   - /app/node_modules
   ports:
-   - 3000:3000
-  command: bash -c "cd /app && pip install --no-cache-dir -r requirements.txt && uvicorn app:app --host 0.0.0.0 --port 3000 --reload"
+   - 3000:5173
+  command: sh -c "npm run dev"
+  # depends_on:
+  #  - backend-api
+
+ backend-api:
+  build:
+   context: .
+   dockerfile: ./backend/backend.dockerfile
+  volumes: 
+   - ./backend:/app
+   - ./data:/data
+   - /app/__pycache__
+  ports:
+   - 3001:3001
+  command: bash -c "cd /app && pip install --no-cache-dir -r requirements.txt && uvicorn app:app --host 0.0.0.0 --port 3001 --reload"
