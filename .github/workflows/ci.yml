@@ -1,0 +1,14 @@
+name: development
+
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@4
+      - run: pip install -r ./backend/requirements.txt
+      - run: "running ci tests to ensure it's working"
