@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
       - run: pip install -r ./backend/requirements.txt
-      - run: "running ci tests to ensure it's working"
+      - run: "running ci tests to ensure it is working"
