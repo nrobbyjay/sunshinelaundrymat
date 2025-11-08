@@ -17,6 +17,9 @@ jobs:
       - run: "pytest"
   frontend:
     runs-on: ubuntu-latest
+    defaults:
+     run:
+      working-directory: backend
     steps:
      - uses: actions/checkout@v5
      - uses: actions/setup-node@v3
