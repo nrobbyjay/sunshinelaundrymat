@@ -1,9 +1,34 @@
-function App() {
-  return (
-    <div>
-      <h1>App</h1>
-    </div>
-  );
-}
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
-export default App;
+import MainLayout from "./layouts/MainLayout";
+import UserLayout from "./layouts/UserLayout";
+
+import Home from "./pages/Home";
+import User from "./pages/User"
+
+export default function App() {
+  //use auth mechanism later
+  const user = false
+  let routes
+  if(!user){
+    routes = (
+      <Route element={<MainLayout/>}>
+        <Route path="/" element={<Home/>}/>
+      </Route>
+    )
+  }
+  else{
+    routes = (
+      <Route element={<UserLayout/>}>
+        <Route path="/" element={<User/>}/>
+      </Route>
+    )
+  }
+  return(
+      <BrowserRouter>
+        <Routes>
+          {routes}
+        </Routes>
+      </BrowserRouter>
+  )
+}
