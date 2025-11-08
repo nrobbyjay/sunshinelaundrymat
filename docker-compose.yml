@@ -22,4 +22,4 @@ services:
    - /app/__pycache__
   ports:
    - 3001:3001
-  command: bash -c "cd /app && pip install --no-cache-dir -r requirements.txt && uvicorn app:app --host 0.0.0.0 --port 3001 --reload"
+  command: bash -c "uvicorn app:app --host 0.0.0.0 --port 3001 --reload"
