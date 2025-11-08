@@ -4,8 +4,9 @@ import Credits from "../sections/UDashboard/Credits"
 export default function UDashboard(){
     return(
         <>
-        THIS IS THE DASHBOARD
-
+        <Credits/>
+        <History/>
+        <Upcomming/>
         </>
     )
 }

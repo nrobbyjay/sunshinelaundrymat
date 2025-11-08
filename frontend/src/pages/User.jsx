@@ -1,8 +1,8 @@
-import Credits from "../components/sections/UDashboard/Credits"
+import UDashboard from "../components/dashboards/UDashboard"
 export default function User(){
     return(
 <>
-<Credits/>
+<UDashboard/>
 </>
             
     )

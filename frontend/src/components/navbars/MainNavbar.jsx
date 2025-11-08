@@ -1,6 +1,5 @@
 function Navbar(){
     return(
-        <>
 <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
   <div className="container">
     <a className="navbar-brand fw-bold text-primary" href="#">Sunshine Laundrymat</a>
@@ -12,12 +11,11 @@ function Navbar(){
       <ul className="navbar-nav ms-auto">
         <li className="nav-item"><a className="nav-link" href="#services">Services</a></li>
         <li className="nav-item"><a className="nav-link" href="#pricing">Pricing</a></li>
-        <li className="nav-item"><a className="nav-link" href="#contact">Contact</a></li>
       </ul>
       <a href="#contact" className="btn btn-primary ms-3">Book Pickup</a>
     </div>
   </div>
-</nav></>
+</nav>
 )
 }
 
