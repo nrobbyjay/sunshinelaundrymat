@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 Base = declarative_base()
-engine = create_engine("sqlite:///dump.db")
+engine = create_engine("sqlite:///./data/dump.db")
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 class order(BaseModel):
