@@ -77,7 +77,32 @@ Database (SQLite)
 * **SQLite** serves as a lightweight local database (can later be replaced with PostgreSQL or MySQL).
 
 ---
+## 🛠️ CI/CD
 
+Sunshine Laundrymat includes a **Continuous Integration (CI) workflow** to ensure backend code quality and functionality.
+
+### Backend Tests
+
+The CI pipeline automatically runs **pytest** tests for core backend functionality:
+
+- `test_create_delivery` – Verify that deliveries can be created successfully  
+- `test_get_deliveries` – Ensure retrieval of deliveries works correctly  
+- `test_create_pickup` – Verify that pickups can be created successfully  
+- `test_get_pickups` – Ensure retrieval of pickups works correctly  
+
+### GitHub Actions Workflow
+
+On each push or pull request, the CI workflow:
+
+1. Sets up a **Python** environment  
+2. Installs dependencies from `requirements.txt`  
+3. Runs all **pytest** tests  
+4. Reports pass/fail status directly in the GitHub pull request  
+
+This ensures that any changes to the backend code do not break existing functionality, helping maintain a stable, production-ready application.
+
+
+---
 ## 🧑‍💻 For Developers
 
 Sunshine Laundrymat can be used as a **starter boilerplate** for other small service businesses — like carwash, tailoring, cleaning, or delivery services.
