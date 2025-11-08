@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v3
-      - run: pip install -r ./backend/requirements.txt
+      - run: pip install -r requirements.txt
       - run: "pytest"
   frontend:
     runs-on: ubuntu-latest
