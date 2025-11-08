@@ -1,5 +1,4 @@
 __pycache__
-dump.db
 node_modules
 venv
 .pytest_cache
