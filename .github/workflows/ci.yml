@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@4
+      - uses: actions/setup-python@3
       - run: pip install -r ./backend/requirements.txt
       - run: "running ci tests to ensure it's working"
