@@ -1,9 +1,7 @@
 name: development
-
 on:
   push:
     branches: [ dev ]
-
 jobs:
   backend:
     runs-on: ubuntu-latest
@@ -23,3 +21,7 @@ jobs:
        with:
         node-version: 20
      - run: npm install --prefix frontend
+     - run: npm test --prefix frontend
+     - run: npm install eslint-plugin-react --save-dev --prefix frontend
+     - run: npm install --save-dev @babel/eslint-parser --prefix frontend
+     - run: npm run lint --prefix frontend

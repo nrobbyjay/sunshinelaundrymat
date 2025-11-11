@@ -8,7 +8,7 @@ import User from "./pages/User"
 
 export default function App() {
   //use auth mechanism later
-  const user = false
+  const user = true
   let routes
   if(!user){
     routes = (
